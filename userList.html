@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="half-w m-4">
+        <h6>Sort By</h6>
+        <div class="btn-group mb-4" opt-kind="" ok-key="sortBy">
+            <button type="button" class="btn btn-secondary pr-4" ok-sel="[score]" ok-type="integer" ng-click="$ctrl.setOrderProperty('twubric.total')">Twubric Score</button>
+            <button type="button" class="btn btn-secondary pr-4" ok-sel="[friends]" ok-type="integer" ng-click="$ctrl.setOrderProperty('twubric.friends')">Friends</button>
+            <button type="button" class="btn btn-secondary pr-4" ok-sel="[influence]" ok-type="integer" ng-click="$ctrl.setOrderProperty('twubric.influence')">Influence</button>
+            <button type="button" class="btn btn-secondary" ok-sel="[chirp]" ok-type="integer" ng-click="$ctrl.setOrderProperty('twubric.chirpiness')">Chirpiness</button>
+        </div>
+    
+        <h6>Joined Twitter between</h6>
+        <div class="half" opt-kind="" ok-key="filter">
+            <div class="clearfix">
+                <div class="float-left">Start Date</div>
+                <div class="float-right">End Date</div>
+            </div>
+            <div class="clearfix">
+                <input type="date" class="btn btn-secondary float-left"  ng-model="from_date">
+                <input type="date" class="eDate btn btn-secondary float-right"  ng-model="to_date">
+            </div>
+        </div>
+    </div>
+
+    <div >
+        <ul class="d-flex list-unstyled justify-content-between row m-4 flex-wrap" isotope-container="isotope-container">
+            <li class="col-sm-3 mr-4 mb-4 bord bord-r" ng-repeat="x in $ctrl.list | orderBy:$ctrl.orderProperty | dateRange : from_date : to_date" isotope-item="isotope-item">
+            <div class="clearfix">
+                <div class="name p-2 float-left">{{x.fullname}}</div>
+                <div class="total p-2 float-right">{{x.twubric.total}}</div>
+            </div>
+            <div class="row">
+                <div class="bord p-2 col-4 text-center float-left friends">{{x.twubric.friends}}<div class="s-text">Friends</div></div>
+                <div  class="bord p-2 col-4 text-center float-left influence">{{x.twubric.influence}}<div class="s-text">Influence</div></div>
+                <div  class="bord p-2 col-4 text-center float-left chirp">{{x.twubric.chirpiness}}<div class="s-text">Chirpiness</div></div>
+            </div>
+            <div class="row">
+                <div  class="col-8 float-left date"  date="{{x.join_date}}">{{x.join_date | date}}</div>
+                <button class="col-4 del float-right btn btn-secondary" ng-click="$ctrl.delete(x)">Delete</button> 
+            </div> 
+            </li>
+        </ul>
+    </div>
+      
+</div>
+    
+    

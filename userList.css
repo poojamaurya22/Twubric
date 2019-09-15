@@ -1,0 +1,25 @@
+.half{
+    width: fit-content;
+  }
+  .eDate{
+    margin-left: 30px;
+  }
+  half-w{
+    width: 50%;
+  }
+  li{
+    background-color: rgba(158, 179, 179, 0.418);
+  }
+  .bord{
+    border: 1px solid rgb(256, 256, 256);
+  }
+  .bord-r{
+    border-radius: 5px;
+  }
+  .date, .total, .name, .del{
+    font-weight: 500;
+  }
+  .s-text{
+    font-size: 8px;
+  }
+  
